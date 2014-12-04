@@ -9,7 +9,7 @@ namespace :upload_picture do
 
     desc "Upload the divide"
     task glacier_basin: :environment do
-      client = DropboxClient.new(DROPBOX_ACCESS_TOKEN)
+      client = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
       image = do_download_remote_photo('http://www.nps.gov/webcams-romo/glacier_basin.jpg')
       time = Time.zone.now.iso8601
       response = client.put_file('/Park Pictures/RMNP/glacier_basin/glacier_basin_' + time +'.jpg', image)
