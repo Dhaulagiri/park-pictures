@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 
-/config/initializers/dropbox.rb
+# Ignore application configuration
+/config/application.yml
