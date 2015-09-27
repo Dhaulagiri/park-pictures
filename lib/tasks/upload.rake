@@ -12,6 +12,8 @@ namespace :upload_picture do
       client = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
       image = do_download_remote_photo('http://www.nps.gov/webcams-romo/glacier_basin.jpg')
       time = Time.zone.now.iso8601
+      time.gsub! '-', '_'
+      time.gsub! ':', '_'
       response = client.put_file('/Park Pictures/RMNP/glacier_basin/glacier_basin_' + time +'.jpg', image)
     end
 
@@ -20,10 +22,10 @@ namespace :upload_picture do
       client = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
       image = do_download_remote_photo('http://www.nps.gov/webcams-romo/longs_peak.jpg')
       time = Time.zone.now.iso8601
+      time.gsub! '-', '_'
+      time.gsub! ':', '_'
       response = client.put_file('/Park Pictures/RMNP/longs/longs_' + time +'.jpg', image)
     end
-
-    task
   end
 
 
